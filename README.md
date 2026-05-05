@@ -1,10 +1,10 @@
 # Customer Churn Prediction & Analysis
 
-**Author:** Saiteja Chedadeepu | [GitHub](https://github.com/Chedadeepu) | [LinkedIn](https://linkedin.com/in/saitejachedadeepu)
+**Author:** Saiteja Chedadeepu | [GitHub](https://github.com/Chedadeepu)
 
 End-to-end churn analysis on the [IBM Telco Customer Churn dataset](https://www.kaggle.com/datasets/blastchar/telco-customer-churn). Covers data cleaning, feature engineering, exploratory analysis, and two classification models (Logistic Regression + Random Forest) with full business interpretation.
 
-> **Quick start:** A sample dataset is already included in `data/` — just install requirements and run. Replace with the real Kaggle dataset for full results.
+> **Quick start:** A sample dataset is already included — just install requirements and run. Replace with the real Kaggle dataset for full results.
 
 ---
 
@@ -48,12 +48,10 @@ End-to-end churn analysis on the [IBM Telco Customer Churn dataset](https://www.
 
 ```
 customer-churn-prediction/
-├── churn_analysis.py              ← Main script (run this)
+├── churn_analysis.py              ← Main script 
 ├── requirements.txt
 ├── README.md
-├── .gitignore
-├── data/
-│   └── telco_churn.csv            ← Sample data included OR download from Kaggle
+└── telco_churn.csv            ← Sample data included OR download from Kaggle
 └── outputs/
     ├── charts/
     │   ├── 01_churn_by_category.png    ← Churn rate by contract, internet, payment, tenure
