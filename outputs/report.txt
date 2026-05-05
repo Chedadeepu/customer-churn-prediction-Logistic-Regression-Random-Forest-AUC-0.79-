@@ -1,0 +1,73 @@
+
+======================================================================
+  CUSTOMER CHURN PREDICTION — ANALYSIS REPORT
+  Author  : Saiteja Chedadeepu  |  github.com/Chedadeepu
+  Dataset : IBM Telco Customer Churn
+======================================================================
+
+DATASET OVERVIEW
+  Total customers : 6,948
+  Overall churn   : 18.7%
+  Training rows   : 5,558
+  Test rows       : 1,390
+  Features used   : 21
+
+MODEL COMPARISON
+  ┌─────────────────────┬──────────┬─────────┬──────────┐
+  │ Model               │ Accuracy │   AUC   │  5-Fold  │
+  ├─────────────────────┼──────────┼─────────┼──────────┤
+  │ Logistic Regression │   81.22% │ 0.7927  │   80.96% │
+  │ Random Forest       │   81.29% │ 0.7816  │   81.25% │
+  └─────────────────────┴──────────┴─────────┴──────────┘
+  Best model : Logistic Regression (AUC = 0.7927)
+
+CLASSIFICATION REPORT (Logistic Regression)
+              precision    recall  f1-score   support
+
+    Retained       0.81      1.00      0.90      1130
+     Churned       0.33      0.00      0.01       260
+
+    accuracy                           0.81      1390
+   macro avg       0.57      0.50      0.45      1390
+weighted avg       0.72      0.81      0.73      1390
+
+
+RISK SEGMENTATION (test set: 1,390 customers)
+  High risk  (>60% churn prob) : 0 customers
+  Medium risk (30-60%)         : 418 customers
+  Low risk   (<30%)            : 972 customers
+
+KEY EDA FINDINGS
+  1. Contract type is the #1 churn driver:
+Contract
+Month-to-month    31.6
+One year           3.8
+Two year           1.6
+
+  2. Short-tenure customers (0-1 yr) churn most — critical onboarding window
+  3. Higher monthly charges correlate with increased churn risk
+  4. Customers with 0 support services churn at significantly higher rates
+
+BUSINESS RECOMMENDATIONS
+  1. Convert Month-to-Month → Annual contracts
+     Offer 10-15% discount for customers switching to annual billing.
+     Target top 500 high-risk Month-to-Month customers first.
+
+  2. 90-Day Onboarding Programme
+     Customers who churn typically do so in first 12 months.
+     Assign CSMs to tenure < 12 month accounts; trigger check-in
+     calls at day 30, 60, 90.
+
+  3. Bundle Add-On Services
+     Customers with OnlineSecurity + TechSupport churn less.
+     Offer free 90-day trial of support bundle to at-risk users.
+
+  4. Monthly At-Risk Scoring
+     Run this model monthly. Export high_risk tier (>60%) to CRM.
+     Target with personalised retention offer within 48 hours.
+
+  Outputs:
+    outputs/churn_scores.csv    ← full probability scores per customer
+    outputs/charts/             ← 6 charts
+    outputs/churn_report.txt    ← this report
+======================================================================
